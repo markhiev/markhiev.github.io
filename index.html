@@ -4,34 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Рамазан — markhiev</title>
-  <meta name="description" content="Full-stack разработчик, информационная безопасность, машинное обучение. PhD. Москва.">
+  <meta name="description" content="Full-stack разработчик, информационная безопасность и машинное обучение. PhD, Москва.">
   <meta property="og:title" content="Рамазан — markhiev">
-  <meta property="og:description" content="Full-stack разработчик · ИБ · Машинное обучение · PhD">
+  <meta property="og:description" content="Full-stack разработчик, информационная безопасность и машинное обучение. PhD, Москва.">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/7976074?v=4">
   <meta property="og:url" content="https://markhiev.github.io/">
   <meta property="og:type" content="profile">
+  <meta name="theme-color" content="#EBEEF5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0D0F2E" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="https://avatars.githubusercontent.com/u/7976074?s=64&v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300..800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff;
-      --bg-subtle: #f6f8fa;
-      --fg: #1f2328;
-      --fg-muted: #59636e;
-      --border: #d1d9e0;
-      --accent: #0969da;
-      --accent-subtle: #ddf4ff;
-      --success: #1a7f37;
+      --bg: #EBEEF5;
+      --ink: #15173D;
+      --ink-soft: #565A80;
+      --line: #C9CEE0;
+      --ultra: #3340FF;
+      --magenta: #D13DFF;
+      --mint: #2BC9A4;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0d1117;
-        --bg-subtle: #151b23;
-        --fg: #f0f6fc;
-        --fg-muted: #9198a1;
-        --border: #3d444d;
-        --accent: #4493f8;
-        --accent-subtle: #388bfd26;
-        --success: #3fb950;
+        --bg: #0D0F2E;
+        --ink: #E8EAFB;
+        --ink-soft: #9CA1CC;
+        --line: #2A2E5E;
+        --ultra: #7C85FF;
+        --magenta: #E07BFF;
+        --mint: #4FE3BF;
       }
     }
 
@@ -40,254 +43,313 @@
     body {
       margin: 0;
       background: var(--bg);
-      color: var(--fg);
-      font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      font-family: "Geologica", system-ui, sans-serif;
+      font-weight: 340;
+      font-size: 17px;
+      line-height: 1.6;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    code, .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+    a { color: inherit; text-decoration-color: var(--ultra); text-underline-offset: 0.2em; text-decoration-thickness: 1.5px; }
+    a:hover { color: var(--ultra); }
+    :focus-visible { outline: 2px solid var(--ultra); outline-offset: 4px; border-radius: 2px; }
 
-    .topbar {
-      background: var(--bg-subtle);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 16px;
-    }
-    .topbar-inner {
-      max-width: 1012px; margin: 0 auto;
-      display: flex; align-items: center; gap: 10px;
-      font-weight: 600;
-    }
-    .topbar svg { fill: var(--fg); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-    .layout {
-      max-width: 1012px; margin: 0 auto;
-      padding: 32px 16px 48px;
+    /* Hero */
+    .hero { position: relative; min-height: 92vh; min-height: 92svh; display: flex; flex-direction: column; }
+    .hero-top {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 28px; font-size: 15px;
+    }
+    .handle { font-weight: 500; text-decoration: none; }
+    .field { flex: 1; position: relative; min-height: 340px; }
+    #field { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: pan-y; }
+    .hero-name {
+      position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+    }
+    .lede {
+      max-width: 34ch;
+      margin: 0 0 56px;
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1.35;
+      font-weight: 300;
+    }
+    .lede strong { font-weight: 600; }
+
+    /* Sections */
+    section { padding: 72px 0; border-top: 1px solid var(--line); }
+    h2 {
+      margin: 0 0 32px;
+      font-size: clamp(28px, 3.6vw, 40px);
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    p { margin: 0 0 16px; max-width: 64ch; }
+
+    .areas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .area h3 { margin: 0 0 8px; font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+    .area p { color: var(--ink-soft); margin: 0; }
+    .swatch { display: block; width: 28px; height: 6px; border-radius: 3px; margin-bottom: 18px; }
+
+    .projects { list-style: none; margin: 0; padding: 0; }
+    .project {
       display: grid;
-      grid-template-columns: 296px 1fr;
-      gap: 32px;
+      grid-template-columns: minmax(200px, 1fr) 2fr 120px;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
     }
+    .project:first-child { border-top: 1px solid var(--line); }
+    .project a { font-weight: 550; font-size: 18px; }
+    .project p { margin: 0; color: var(--ink-soft); }
+    .project .lang { color: var(--ink-soft); font-size: 15px; text-align: right; }
 
-    /* Sidebar */
-    .avatar {
-      width: 100%; max-width: 296px; aspect-ratio: 1;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      display: block;
-    }
-    .name { margin: 16px 0 0; font-size: 24px; line-height: 1.25; font-weight: 600; }
-    .login { margin: 0; font-size: 20px; font-weight: 300; color: var(--fg-muted); }
-    .bio { margin: 16px 0; font-size: 16px; }
-    .btn {
-      display: block; text-align: center;
-      padding: 5px 16px;
-      border: 1px solid var(--border); border-radius: 6px;
-      background: var(--bg-subtle); color: var(--fg);
-      font-weight: 500;
-    }
-    .btn:hover { text-decoration: none; filter: brightness(0.97); }
-    .meta { list-style: none; padding: 0; margin: 16px 0 0; color: var(--fg); }
-    .meta li { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
-    .meta svg { fill: var(--fg-muted); flex: none; }
+    .stack { display: grid; grid-template-columns: 160px 1fr; gap: 14px 24px; margin: 0; }
+    .stack dt { color: var(--ink-soft); }
+    .stack dd { margin: 0; font-weight: 450; }
 
-    /* Main */
-    .readme {
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 24px;
-    }
-    .readme-label {
-      font-size: 12px; color: var(--fg-muted);
-      margin: 0 0 12px;
-    }
-    .readme h1 {
-      font-size: 2em; margin: 0 0 16px; padding-bottom: .3em;
-      border-bottom: 1px solid var(--border); font-weight: 600;
-    }
-    .readme h2 {
-      font-size: 1.5em; margin: 24px 0 16px; padding-bottom: .3em;
-      border-bottom: 1px solid var(--border); font-weight: 600;
-    }
-    .readme p { margin: 0 0 16px; font-size: 16px; }
-
-    .stack { display: grid; gap: 12px; }
-    .stack-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-    .stack-label { width: 120px; color: var(--fg-muted); font-size: 14px; flex: none; }
-    .topic {
+    .contact { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 24px; }
+    .contact p { font-size: clamp(22px, 2.6vw, 30px); font-weight: 300; line-height: 1.3; margin: 0; max-width: 24ch; }
+    .button {
       display: inline-block;
-      padding: 2px 10px;
-      font-size: 12px; font-weight: 500; line-height: 20px;
-      border-radius: 2em;
-      background: var(--accent-subtle); color: var(--accent);
+      padding: 14px 26px;
+      border-radius: 999px;
+      background: var(--ink); color: var(--bg);
+      font-weight: 500; text-decoration: none;
     }
+    .button:hover { background: var(--ultra); color: #fff; }
 
-    .learning { margin: 0; padding-left: 2em; font-size: 16px; }
-    .learning li { margin-top: 4px; }
+    footer { padding: 32px 0 48px; color: var(--ink-soft); font-size: 14px; border-top: 1px solid var(--line); }
 
-    .section-title { font-size: 16px; font-weight: 400; margin: 24px 0 8px; }
-    .pinned {
-      list-style: none; padding: 0; margin: 0;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    }
-    .repo {
-      border: 1px solid var(--border); border-radius: 6px;
-      padding: 16px;
-      display: flex; flex-direction: column; gap: 8px;
-    }
-    .repo-head { display: flex; align-items: center; gap: 8px; min-width: 0; }
-    .repo-head svg { fill: var(--fg-muted); flex: none; }
-    .repo-name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .badge {
-      margin-left: auto; flex: none;
-      font-size: 12px; color: var(--fg-muted);
-      border: 1px solid var(--border); border-radius: 2em;
-      padding: 0 7px;
-    }
-    .repo p { margin: 0; color: var(--fg-muted); font-size: 12px; flex: 1; }
-    .lang { font-size: 12px; color: var(--fg-muted); display: flex; align-items: center; gap: 4px; }
-    .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-
-    .contact {
-      margin-top: 24px;
-      border: 1px solid var(--border); border-radius: 6px;
-      padding: 16px 24px;
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
-    }
-    .contact p { margin: 0; font-size: 16px; }
-
-    footer {
-      max-width: 1012px; margin: 0 auto;
-      padding: 24px 16px 40px;
-      border-top: 1px solid var(--border);
-      color: var(--fg-muted); font-size: 12px;
-    }
-
-    @media (max-width: 767px) {
-      .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
-      .profile { display: grid; grid-template-columns: 96px 1fr; column-gap: 16px; align-items: center; }
-      .avatar { width: 96px; }
-      .name { margin: 0; }
-      .profile > :not(.avatar):not(.names) { grid-column: 1 / -1; }
-      .pinned { grid-template-columns: 1fr; }
-      .readme { padding: 16px; }
-      .stack-label { width: 100%; }
+    @media (max-width: 760px) {
+      body { font-size: 16px; }
+      .wrap { padding: 0 16px; }
+      .hero { min-height: 0; }
+      .field { flex: none; min-height: 0; height: 52vw; margin: 24px 0 8px; }
+      .lede { margin-bottom: 40px; }
+      section { padding: 56px 0; }
+      .areas { grid-template-columns: 1fr; gap: 32px; }
+      .project { grid-template-columns: 1fr; gap: 4px; }
+      .project .lang { text-align: left; }
+      .stack { grid-template-columns: 1fr; gap: 2px; }
+      .stack dd { margin-bottom: 14px; }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <svg width="24" height="24" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>
-      <span class="mono">markhiev</span>
+  <header class="hero wrap">
+    <div class="hero-top">
+      <a class="handle" href="https://github.com/markhiev">markhiev</a>
+      <span>Москва</span>
     </div>
+    <div class="field">
+      <h1 class="hero-name">Рамазан</h1>
+      <canvas id="field" aria-hidden="true"></canvas>
+    </div>
+    <p class="lede">Full-stack разработчик. Занимаюсь <strong>информационной безопасностью</strong> и <strong>машинным обучением</strong>, PhD.</p>
   </header>
 
-  <div class="layout">
-    <aside class="profile">
-      <img class="avatar" src="https://avatars.githubusercontent.com/u/7976074?s=460&v=4" alt="Фото Рамазана" width="296" height="296">
-      <div class="names">
-        <h1 class="name">Рамазан</h1>
-        <p class="login">markhiev</p>
-      </div>
-      <p class="bio">Full-stack разработчик. Информационная безопасность. Машинное обучение. PhD.</p>
-      <a class="btn" href="https://github.com/markhiev">Профиль на GitHub</a>
-      <ul class="meta">
-        <li>
-          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z"/></svg>
-          Москва
-        </li>
-        <li>
-          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>
-          <a href="https://github.com/markhiev?tab=repositories">19 публичных репозиториев</a>
-        </li>
-      </ul>
-    </aside>
-
-    <main>
-      <article class="readme">
-        <p class="readme-label mono">markhiev / README.md</p>
-        <h1>Привет 👋</h1>
-        <p>Я Рамазан — разработчик из Москвы. Делаю full-stack веб-приложения, занимаюсь информационной безопасностью и машинным обучением. Люблю open source и проекты, которые доводятся до работающего результата.</p>
-
-        <h2>🔧 Стек</h2>
-        <div class="stack">
-          <div class="stack-row">
-            <span class="stack-label">Языки</span>
-            <span class="topic">JavaScript</span>
-            <span class="topic">TypeScript</span>
-            <span class="topic">Python</span>
-            <span class="topic">Java</span>
+  <main>
+    <section>
+      <div class="wrap">
+        <h2>Чем занимаюсь</h2>
+        <div class="areas">
+          <div class="area">
+            <span class="swatch" style="background:var(--ultra)"></span>
+            <h3>Разработка</h3>
+            <p>Веб-приложения целиком: интерфейсы на React, API на Node.js, NestJS и GraphQL, базы данных и деплой в Docker и Kubernetes.</p>
           </div>
-          <div class="stack-row">
-            <span class="stack-label">Фреймворки</span>
-            <span class="topic">React</span>
-            <span class="topic">Node.js</span>
-            <span class="topic">NestJS</span>
-            <span class="topic">GraphQL</span>
-            <span class="topic">Django</span>
+          <div class="area">
+            <span class="swatch" style="background:var(--magenta)"></span>
+            <h3>Безопасность</h3>
+            <p>Защита инфраструктуры и приложений: сетевые правила, мониторинг на стеке ELK, учебные стенды вроде WebGoat.</p>
           </div>
-          <div class="stack-row">
-            <span class="stack-label">Инструменты</span>
-            <span class="topic">Git</span>
-            <span class="topic">Docker</span>
-            <span class="topic">Kubernetes</span>
-            <span class="topic">VS Code</span>
+          <div class="area">
+            <span class="swatch" style="background:var(--mint)"></span>
+            <h3>Машинное обучение</h3>
+            <p>Прогнозирование временных рядов и табличных данных, ML-сервисы и практики MLOps, чтобы модели доходили до продакшена.</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <h2>🌱 Сейчас изучаю</h2>
-        <ul class="learning">
-          <li>Машинное обучение</li>
-          <li>Практики DevOps / MLOps</li>
+    <section>
+      <div class="wrap">
+        <h2>Проекты</h2>
+        <ul class="projects">
+          <li class="project">
+            <a href="https://github.com/markhiev/my_time_series_app">my_time_series_app</a>
+            <p>Бизнес-приложение для прогноза временных рядов на AutoGluon.</p>
+            <span class="lang">Python</span>
+          </li>
+          <li class="project">
+            <a href="https://github.com/markhiev/my_tabular_app">my_tabular_app</a>
+            <p>Streamlit-приложение для предсказаний на табличных данных.</p>
+            <span class="lang">Python</span>
+          </li>
+          <li class="project">
+            <a href="https://github.com/markhiev/Burnout-Tracker-AI">Burnout-Tracker-AI</a>
+            <p>Трекер выгорания с применением машинного обучения.</p>
+            <span class="lang">Python</span>
+          </li>
+          <li class="project">
+            <a href="https://github.com/markhiev/nestjs-gql-api">nestjs-gql-api</a>
+            <p>API на NestJS, Sequelize, GraphQL и Postgres.</p>
+            <span class="lang">TypeScript</span>
+          </li>
         </ul>
-      </article>
+      </div>
+    </section>
 
-      <h2 class="section-title">Избранные проекты</h2>
-      <ul class="pinned">
-        <li class="repo">
-          <div class="repo-head">
-            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8Z"/></svg>
-            <a class="repo-name" href="https://github.com/markhiev/my_time_series_app">my_time_series_app</a>
-            <span class="badge">Public</span>
-          </div>
-          <p>Бизнес-приложение для прогноза временных рядов на AutoGluon.</p>
-          <span class="lang"><span class="dot" style="background:#3572A5"></span>Python</span>
-        </li>
-        <li class="repo">
-          <div class="repo-head">
-            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8Z"/></svg>
-            <a class="repo-name" href="https://github.com/markhiev/my_tabular_app">my_tabular_app</a>
-            <span class="badge">Public</span>
-          </div>
-          <p>Streamlit-приложение для предсказаний на табличных данных.</p>
-          <span class="lang"><span class="dot" style="background:#3572A5"></span>Python</span>
-        </li>
-        <li class="repo">
-          <div class="repo-head">
-            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8Z"/></svg>
-            <a class="repo-name" href="https://github.com/markhiev/Burnout-Tracker-AI">Burnout-Tracker-AI</a>
-            <span class="badge">Public</span>
-          </div>
-          <p>Трекер выгорания с применением машинного обучения.</p>
-          <span class="lang"><span class="dot" style="background:#3572A5"></span>Python</span>
-        </li>
-        <li class="repo">
-          <div class="repo-head">
-            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8Z"/></svg>
-            <a class="repo-name" href="https://github.com/markhiev/nestjs-gql-api">nestjs-gql-api</a>
-            <span class="badge">Public</span>
-          </div>
-          <p>API на NestJS, Sequelize, GraphQL и Postgres.</p>
-          <span class="lang"><span class="dot" style="background:#3178c6"></span>TypeScript</span>
-        </li>
-      </ul>
+    <section>
+      <div class="wrap">
+        <h2>Стек</h2>
+        <dl class="stack">
+          <dt>Языки</dt><dd>JavaScript, TypeScript, Python, Java</dd>
+          <dt>Фреймворки</dt><dd>React, Node.js, NestJS, GraphQL, Django</dd>
+          <dt>Инструменты</dt><dd>Git, Docker, Kubernetes, VS Code</dd>
+          <dt>Изучаю</dt><dd>Машинное обучение, DevOps и MLOps</dd>
+        </dl>
+      </div>
+    </section>
 
-      <section class="contact">
+    <section>
+      <div class="wrap contact">
         <p>Хотите обсудить проект или сотрудничество?</p>
-        <a class="btn" href="https://github.com/markhiev">Написать на GitHub</a>
-      </section>
-    </main>
-  </div>
+        <a class="button" href="https://github.com/markhiev">Написать на GitHub</a>
+      </div>
+    </section>
+  </main>
 
-  <footer>© 2026 Рамазан · markhiev.github.io</footer>
+  <footer>
+    <div class="wrap">© 2026 Рамазан</div>
+  </footer>
+
+  <script>
+  (() => {
+    const canvas = document.getElementById('field');
+    const ctx = canvas.getContext('2d');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const dark = matchMedia('(prefers-color-scheme: dark)');
+    const TEXT = 'Рамазан';
+    let W = 0, H = 0, dpr = 1, particles = [], running = false, visible = true, raf = 0;
+    const pointer = { x: -1e4, y: -1e4 };
+
+    const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+    const mix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
+
+    function palette() {
+      const u = hex(css('--ultra')), m = hex(css('--magenta')), g = hex(css('--mint'));
+      return t => t < 0.5 ? mix(u, m, t * 2) : mix(m, g, (t - 0.5) * 2);
+    }
+
+    function gauss() {
+      return Math.sqrt(-2 * Math.log(1 - Math.random())) * Math.cos(2 * Math.PI * Math.random());
+    }
+
+    function build() {
+      const rect = canvas.getBoundingClientRect();
+      W = Math.floor(rect.width); H = Math.floor(rect.height);
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      // Render the name offscreen and sample its pixels as particle targets.
+      const off = document.createElement('canvas');
+      off.width = W; off.height = H;
+      const o = off.getContext('2d');
+      let size = H * 0.9;
+      o.font = `800 ${size}px Geologica, system-ui, sans-serif`;
+      const w = o.measureText(TEXT).width;
+      if (w > W) size *= W / w;
+      o.font = `800 ${size}px Geologica, system-ui, sans-serif`;
+      o.textBaseline = 'middle';
+      o.fillText(TEXT, 0, H / 2);
+      const data = o.getImageData(0, 0, W, H).data;
+
+      const gap = Math.max(3, Math.round(size / 34));
+      const color = palette();
+      const old = particles;
+      particles = [];
+      for (let y = 0; y < H; y += gap) {
+        for (let x = 0; x < W; x += gap) {
+          if (data[(y * W + x) * 4 + 3] < 128) continue;
+          const prev = old[particles.length];
+          const t = Math.min(1, Math.max(0, x / W + (Math.random() - 0.5) * 0.12));
+          particles.push({
+            tx: x, ty: y,
+            x: prev ? prev.x : W / 2 + gauss() * W * 0.25,
+            y: prev ? prev.y : H / 2 + gauss() * H * 0.3,
+            vx: 0, vy: 0,
+            r: gap * (0.28 + Math.random() * 0.22),
+            c: `rgb(${color(t).join(',')})`,
+            k: 0.012 + Math.random() * 0.02
+          });
+        }
+      }
+      if (reduced) particles.forEach(p => { p.x = p.tx; p.y = p.ty; });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (const p of particles) {
+        ctx.fillStyle = p.c;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function step() {
+      let energy = 0;
+      const R = Math.max(70, W * 0.08);
+      for (const p of particles) {
+        p.vx += (p.tx - p.x) * p.k;
+        p.vy += (p.ty - p.y) * p.k;
+        const dx = p.x - pointer.x, dy = p.y - pointer.y, d2 = dx * dx + dy * dy;
+        if (d2 < R * R) {
+          const d = Math.sqrt(d2) || 1, f = (1 - d / R) * 6;
+          p.vx += dx / d * f; p.vy += dy / d * f;
+        }
+        p.vx *= 0.86; p.vy *= 0.86;
+        p.x += p.vx; p.y += p.vy;
+        energy += Math.abs(p.vx) + Math.abs(p.vy);
+      }
+      draw();
+      // Stop the loop once everything has settled; pointer movement restarts it.
+      if (energy / particles.length < 0.01 && pointer.x < -1e3) { running = false; return; }
+      raf = requestAnimationFrame(step);
+    }
+
+    function start() {
+      if (reduced) { draw(); return; }
+      if (!running && visible) { running = true; raf = requestAnimationFrame(step); }
+    }
+
+    canvas.addEventListener('pointermove', e => {
+      const r = canvas.getBoundingClientRect();
+      pointer.x = e.clientX - r.left; pointer.y = e.clientY - r.top;
+      start();
+    });
+    canvas.addEventListener('pointerleave', () => { pointer.x = pointer.y = -1e4; start(); });
+
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (!visible) { cancelAnimationFrame(raf); running = false; } else start();
+    }).observe(canvas);
+
+    let resizeTimer;
+    addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { build(); start(); }, 150);
+    });
+    dark.addEventListener('change', () => { build(); start(); });
+
+    document.fonts.load('800 100px Geologica').finally(() => { build(); start(); });
+  })();
+  </script>
 </body>
 </html>
