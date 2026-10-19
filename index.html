@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://api.github.com">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=Russo+One&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -50,13 +50,16 @@
     body {
       margin: 0;
       color: var(--text);
-      font-family: "Tektur", system-ui, sans-serif;
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
       font-weight: 400;
       font-size: 17px;
       line-height: 1.6;
       overflow-x: hidden;
     }
-    .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+    .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+    /* Russo One is the display voice; IBM Plex carries running text and data. */
+    h2, h3, .lede, .button, .contact p, .sub { font-family: "Russo One", system-ui, sans-serif; font-weight: 400; }
+    h3 .mono, .feat h3 { font-family: "IBM Plex Mono", ui-monospace, monospace; }
     a { color: inherit; text-decoration-color: var(--cyan); text-underline-offset: 0.22em; text-decoration-thickness: 1.5px; }
     a:hover { color: var(--cyan); }
     :focus-visible { outline: 2px solid var(--yellow); outline-offset: 4px; }
@@ -174,7 +177,6 @@
       content: ""; width: 14px; height: 14px; flex: none;
       background: var(--yellow); box-shadow: 0 0 12px var(--yellow);
       clip-path: polygon(0 0, 100% 0, 100% 60%, 60% 100%, 0 100%);
-      animation: blink 2.4s steps(1) infinite;
     }
     h3 { margin: 0 0 10px; font-size: 21px; font-weight: 700; line-height: 1.25; }
     p { margin: 0 0 16px; max-width: 64ch; }
@@ -232,7 +234,8 @@
       position: absolute; top: 0; left: 0;
       width: 46px; height: 46px; display: grid; place-items: center;
       background: var(--bg); border: 1.5px solid var(--cyan); color: var(--cyan);
-      font: 600 14px "JetBrains Mono", monospace;
+      font: 600 14px "IBM Plex Mono", monospace;
+      z-index: 1;
       clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
     }
     .step p { color: var(--muted); font-size: 15px; margin: 0; }
@@ -243,7 +246,7 @@
     .feat h3 { font-size: 24px; }
     .feat h3 a { text-decoration: none; }
     .feat .tags { margin-top: auto; padding-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag { font: 12px "JetBrains Mono", monospace; color: var(--cyan); border: 1px solid #00E5FF55; padding: 2px 8px; }
+    .tag { font: 12px "IBM Plex Mono", monospace; color: var(--cyan); border: 1px solid #00E5FF55; padding: 2px 8px; }
 
     .sub { font-size: 20px; font-weight: 700; margin: 0 0 16px; color: var(--muted); }
     .projects { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
@@ -334,6 +337,8 @@
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .js .reveal { opacity: 1; }
     }
+    /* Russo One has a single weight; avoid synthetic bold. */
+    h2, h3, .lede, .lede strong, .button, .contact p, .sub { font-weight: 400; }
   </style>
 </head>
 <body>
@@ -374,9 +379,9 @@
       <div class="wrap about">
         <div>
           <h2 class="decrypt">Обо мне</h2>
-          <p class="reveal">Я разработчик из Москвы и кандидат наук. Пишу приложения целиком, от интерфейса до инфраструктуры, а последние годы в основном занимаюсь машинным обучением.</p>
-          <p class="reveal" style="--d:.1s">Мне важно, чтобы модель не оставалась ноутбуком с метриками. Поэтому я упаковываю ML в приложения, где человек без опыта программирования сам загружает данные, обучает модель и получает прогноз.</p>
-          <p class="reveal" style="--d:.2s">Бэкграунд в информационной безопасности помогает смотреть на системы со стороны атакующего: логи, сетевые правила и уязвимости для меня такая же часть продукта, как и код.</p>
+          <p>Я разработчик из Москвы и кандидат наук. Пишу приложения целиком, от интерфейса до инфраструктуры, а последние годы в основном занимаюсь машинным обучением.</p>
+          <p>Мне важно, чтобы модель не оставалась ноутбуком с метриками. Поэтому я упаковываю ML в приложения, где человек без опыта программирования сам загружает данные, обучает модель и получает прогноз.</p>
+          <p>Бэкграунд в информационной безопасности помогает смотреть на системы со стороны атакующего: логи, сетевые правила и уязвимости для меня такая же часть продукта, как и код.</p>
         </div>
         <dl class="facts panel reveal mono" style="--d:.15s">
           <div><dt>Город</dt><dd>Москва</dd></div>
@@ -554,11 +559,11 @@
         <div class="notes">
           <a class="note panel reveal" href="https://gist.github.com/markhiev/eb3dcd7d59ae908c51ef96535114a9d1">
             <h3>tsconfig.json с комментариями</h3>
-            <span class="mono">TypeScript · ноябрь 2020</span>
+            <span class="mono">TypeScript, ноябрь 2020</span>
           </a>
           <a class="note panel reveal" style="--d:.1s" href="https://gist.github.com/markhiev/640f1e2ae52e836ada3796cda40f6837">
             <h3>Команды git flow против обычного git</h3>
-            <span class="mono">Git · май 2019</span>
+            <span class="mono">Git, май 2019</span>
           </a>
         </div>
       </div>
@@ -792,10 +797,10 @@
       off.width = W; off.height = H;
       const o = off.getContext('2d');
       let size = H * 0.95;
-      o.font = `900 ${size}px Tektur, system-ui, sans-serif`;
+      o.font = `400 ${size}px "Russo One", system-ui, sans-serif`;
       const w = o.measureText(TEXT).width;
       if (w > W) size *= W / w;
-      o.font = `900 ${size}px Tektur, system-ui, sans-serif`;
+      o.font = `400 ${size}px "Russo One", system-ui, sans-serif`;
       o.textBaseline = 'middle';
       o.fillText(TEXT, 0, H / 2);
       const data = o.getImageData(0, 0, W, H).data;
@@ -916,7 +921,7 @@
       resizeTimer = setTimeout(() => { build(); start(); }, 150);
     });
 
-    document.fonts.load('900 100px Tektur').finally(() => { build(); start(); });
+    document.fonts.load('400 100px "Russo One"').finally(() => { build(); start(); });
   })();
   </script>
 </body>
